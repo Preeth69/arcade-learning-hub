@@ -1,14 +1,17 @@
 
-import { Calculator, Clock, Calendar, TrendingUp, TrendingDown, ChartBar } from "lucide-react";
+import { Calculator, Clock, Calendar, TrendingUp, TrendingDown, ChartBar, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const toolsData = [
   {
     id: 1,
     title: "Currency Strength Meter",
-    description: "Track the relative strength of major currencies in real-time to identify potential trading opportunities.",
+    description: "Track the real-time relative strength of major currencies to identify potential forex trading opportunities.",
     icon: TrendingUp,
-    comingSoon: true,
+    comingSoon: false,
+    link: "https://www.babypips.com/tools/marketmilk",
+    buttonText: "View Live Strength Meter"
   },
   {
     id: 2,
@@ -72,6 +75,18 @@ const ForexTools = () => {
             <CardContent>
               <CardDescription className="text-base">{tool.description}</CardDescription>
             </CardContent>
+            {!tool.comingSoon && tool.link && (
+              <CardFooter>
+                <Button 
+                  variant="outline" 
+                  className="w-full border-trader-blue text-trader-blue hover:bg-trader-blue hover:text-white"
+                  onClick={() => window.open(tool.link, "_blank")}
+                >
+                  {tool.buttonText}
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </Button>
+              </CardFooter>
+            )}
           </Card>
         ))}
       </div>
