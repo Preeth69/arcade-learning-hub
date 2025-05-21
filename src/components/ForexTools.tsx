@@ -18,7 +18,9 @@ const toolsData = [
     title: "Forex Session Clock",
     description: "Monitor active trading sessions worldwide to optimize your trading schedule.",
     icon: Clock,
-    comingSoon: true,
+    comingSoon: false,
+    link: "https://www.babypips.com/tools/forex-market-hours",
+    buttonText: "View Live Forex Session Clock"
   },
   {
     id: 3,
