@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", href: "#" },
-  { name: "Learning Tracks", href: "#learning-tracks" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" }
 ];
@@ -46,14 +45,6 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-        
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button 
-            className="bg-trader-accent hover:bg-trader-accent/90 text-white"
-          >
-            Start Learning Free
-          </Button>
-        </div>
       </nav>
       
       {/* Mobile menu */}
@@ -85,14 +76,6 @@ const Navbar = () => {
                   {item.name}
                 </a>
               ))}
-            </div>
-            <div className="py-6 px-8">
-              <Button 
-                className="w-full bg-trader-accent hover:bg-trader-accent/90 text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Start Learning Free
-              </Button>
             </div>
           </div>
         </div>

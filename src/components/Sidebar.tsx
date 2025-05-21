@@ -1,8 +1,7 @@
 
 import { useState } from "react";
-import { ArrowUp, Book, ChevronDown, Home, Info, Search } from "lucide-react";
+import { ArrowUp, Book, Home, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { learningContent } from "@/data/content";
 import { Button } from "@/components/ui/button";
 
 interface SidebarProps {
@@ -10,7 +9,6 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ className }: SidebarProps) => {
-  const [expandedPhase, setExpandedPhase] = useState<string | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Set up scroll event listener
@@ -23,14 +21,6 @@ const Sidebar = ({ className }: SidebarProps) => {
       }
     });
   }
-
-  const togglePhase = (phaseId: string) => {
-    if (expandedPhase === phaseId) {
-      setExpandedPhase(null);
-    } else {
-      setExpandedPhase(phaseId);
-    }
-  };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -56,49 +46,9 @@ const Sidebar = ({ className }: SidebarProps) => {
             <span>Home</span>
           </a>
           
-          <div className="mt-6 mb-2">
-            <p className="text-xs uppercase tracking-wider text-trader-lightBlue mb-3">Learning Tracks</p>
-            
-            {learningContent.map((phase) => (
-              <div key={phase.id} className="mb-2">
-                <button 
-                  onClick={() => togglePhase(phase.id)}
-                  className="flex items-center justify-between w-full p-2 text-left rounded-md hover:bg-trader-darkBlue"
-                >
-                  <span>{phase.title.split(':')[0]}</span>
-                  <ChevronDown 
-                    className={cn(
-                      "h-4 w-4 transition-transform", 
-                      expandedPhase === phase.id ? "transform rotate-180" : ""
-                    )} 
-                  />
-                </button>
-                
-                {expandedPhase === phase.id && (
-                  <div className="ml-4 pl-2 border-l border-trader-lightBlue/30 mt-1 space-y-1">
-                    {phase.resources.map((resource) => (
-                      <a 
-                        key={resource.id}
-                        href={`#${resource.id}`}
-                        className="block py-1 px-2 text-sm text-trader-lightBlue hover:text-white rounded-md hover:bg-trader-darkBlue"
-                      >
-                        {resource.title}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-          
           <a href="#about" className="flex items-center p-2 rounded-md hover:bg-trader-darkBlue">
             <Info className="mr-2 h-5 w-5" />
             <span>About</span>
-          </a>
-          
-          <a href="#search" className="flex items-center p-2 rounded-md hover:bg-trader-darkBlue">
-            <Search className="mr-2 h-5 w-5" />
-            <span>Search</span>
           </a>
         </nav>
       </div>
