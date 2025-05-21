@@ -10,7 +10,7 @@ const toolsData = [
     description: "Track the real-time relative strength of major currencies to identify potential forex trading opportunities.",
     icon: TrendingUp,
     comingSoon: false,
-    link: "https://www.babypips.com/tools/marketmilk",
+    link: "https://currencystrengthmeter.org/",
     buttonText: "View Live Strength Meter"
   },
   {
