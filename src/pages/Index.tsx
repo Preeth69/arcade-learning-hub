@@ -5,6 +5,7 @@ import Sidebar from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import ForexTools from "@/components/ForexTools";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const openCurriculum = () => {
@@ -77,8 +78,12 @@ const Index = () => {
             <p className="text-lg mb-8">
               Have questions or suggestions? We'd love to hear from you!
             </p>
-            <Button size="lg" className="bg-trader-blue hover:bg-trader-blue/90">
-              Contact Us
+            <Button 
+              size="lg" 
+              className="bg-trader-blue hover:bg-trader-blue/90"
+              asChild
+            >
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
         </section>
