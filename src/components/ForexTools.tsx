@@ -108,14 +108,22 @@ const ForexTools = () => {
               )}
             </CardContent>
             {!tool.comingSoon && tool.link && (
-              <CardFooter>
+              <CardFooter className="flex justify-center">
                 <Button 
                   variant="outline" 
-                  className="w-full border-trader-blue text-trader-blue hover:bg-trader-blue hover:text-white"
+                  className="border-trader-blue text-trader-blue hover:bg-trader-blue hover:text-white px-6 py-2 h-auto rounded-lg inline-flex max-w-full text-center"
+                  style={{
+                    fontSize: 'clamp(0.875rem, 1vw, 1rem)',
+                    padding: '0.6rem 1.2rem',
+                    textOverflow: 'ellipsis',
+                    overflow: 'hidden',
+                    width: 'fit-content',
+                    borderRadius: '8px',
+                  }}
                   onClick={() => window.open(tool.link, "_blank")}
                 >
                   {tool.buttonText}
-                  <ExternalLink className="ml-2 h-4 w-4" />
+                  <ExternalLink className="ml-2 h-4 w-4 flex-shrink-0" />
                 </Button>
               </CardFooter>
             )}
