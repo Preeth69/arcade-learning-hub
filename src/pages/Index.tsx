@@ -46,18 +46,26 @@ const Index = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-6 text-trader-blue">About Library Trader</h2>
             <p className="text-lg mb-4">
-              Library Trader by Option Arcade provides a structured approach to learning trading 
-              through carefully curated free resources. Our mission is to make trading education 
-              accessible to everyone, regardless of their background or financial situation.
+              Library Trader by Option Arcade is a comprehensive educational platform dedicated to making 
+              trading education accessible, structured, and effective. Founded by a trader and investor with 
+              over seven years of market experience—investing since 2018 and trading actively since 2021—the 
+              platform is built on a deep understanding of what traders truly need to succeed.
             </p>
             <p className="text-lg mb-4">
-              We believe that with the right education, mindset, and practice, anyone can develop 
-              the skills needed to become a successful trader. Our curriculum is designed to guide 
-              you through this journey step by step.
+              Our mission is to democratize trading education by providing carefully curated, high-quality 
+              resources at no cost. We believe that with the right mindset, discipline, and systematic learning, 
+              anyone can develop the skills required to navigate the financial markets effectively.
             </p>
-            <p className="text-lg">
-              All content is organized to help you build a solid foundation before moving on to 
-              more advanced topics, ensuring that you develop the skills and knowledge in the right order.
+            <p className="text-lg mb-4">
+              The educational framework is designed to guide users through a logical progression, starting with 
+              core fundamentals and moving toward advanced strategies. This ensures learners build a strong 
+              foundation before tackling complex topics.
+            </p>
+            <p className="text-lg mb-4">
+              To complement the learning experience, Library Trader provides access to essential trading tools 
+              that support practical application and decision-making, including Currency Strength Meters, 
+              Forex Session Clocks, Economic Calendars, ATR Calculators, Position Size Calculators, and 
+              Lot Size Converters—all key components for long-term trading success.
             </p>
           </div>
         </section>
