@@ -1,5 +1,5 @@
 
-import { Calculator, Clock, Calendar, TrendingUp, TrendingDown, ChartBar, ExternalLink } from "lucide-react";
+import { Calculator, Clock, Calendar, TrendingUp, TrendingDown, ChartBar, ExternalLink, Ruler, Shield, ArrowRightLeft } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -34,23 +34,29 @@ const toolsData = [
   {
     id: 4,
     title: "ATR Calculator",
-    description: "Calculate Average True Range to better understand market volatility and set appropriate stop losses.",
+    description: "Use the Average True Range to measure market volatility and fine-tune your stop loss placement. Ideal for gauging how much a pair typically moves.",
     icon: ChartBar,
-    comingSoon: true,
+    comingSoon: false,
+    link: "https://www.myfxbook.com/forex-calculators/atr",
+    buttonText: "Open ATR Calculator"
   },
   {
     id: 5,
     title: "Position Size Calculator",
-    description: "Determine optimal position sizes based on your risk management strategy.",
-    icon: Calculator,
-    comingSoon: true,
+    description: "Control your risk like a pro. This tool helps you calculate the exact lot size based on your account size, stop loss, and risk percentage.",
+    icon: Ruler,
+    comingSoon: false,
+    link: "https://www.myfxbook.com/forex-calculators/position-size",
+    buttonText: "Use Position Size Tool"
   },
   {
     id: 6,
     title: "Lot Size Converter",
-    description: "Convert between standard, mini, and micro lots with ease.",
-    icon: TrendingDown,
-    comingSoon: true,
+    description: "Quickly convert between standard, mini, and micro lots to suit your strategy and account balance. Perfect for fast lot management.",
+    icon: ArrowRightLeft,
+    comingSoon: false,
+    link: "https://www.earnforex.com/tools/position-size-calculator/",
+    buttonText: "Launch Lot Size Converter"
   },
 ];
 
@@ -83,6 +89,21 @@ const ForexTools = () => {
                   <span className="text-red-500 font-medium">Red = High Impact</span> · 
                   <span className="text-orange-500 font-medium"> Orange = Medium</span> · 
                   <span className="text-yellow-500 font-medium"> Yellow = Low</span>
+                </div>
+              )}
+              {tool.id === 4 && !tool.comingSoon && (
+                <div className="mt-2 text-xs text-gray-500">
+                  <span className="font-medium">Higher ATR = More Volatility</span>
+                </div>
+              )}
+              {tool.id === 5 && !tool.comingSoon && (
+                <div className="mt-2 text-xs text-gray-500">
+                  <span className="font-medium">Never risk more than 1–2% of your capital per trade</span>
+                </div>
+              )}
+              {tool.id === 6 && !tool.comingSoon && (
+                <div className="mt-2 text-xs text-gray-500">
+                  <span className="font-medium">1 Standard = 100,000 · 1 Mini = 10,000 · 1 Micro = 1,000</span>
                 </div>
               )}
             </CardContent>
