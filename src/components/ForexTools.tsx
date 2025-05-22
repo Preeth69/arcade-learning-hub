@@ -25,9 +25,11 @@ const toolsData = [
   {
     id: 3,
     title: "Economic Calendar",
-    description: "Stay informed about upcoming economic events that may impact the forex market.",
+    description: "Track upcoming economic events that could affect the forex market. Stay ahead of high-impact news like NFP, CPI, interest rate decisions, and more.",
     icon: Calendar,
-    comingSoon: true,
+    comingSoon: false,
+    link: "https://www.forexfactory.com/calendar",
+    buttonText: "View Forex Factory Calendar"
   },
   {
     id: 4,
@@ -76,6 +78,13 @@ const ForexTools = () => {
             </CardHeader>
             <CardContent>
               <CardDescription className="text-base">{tool.description}</CardDescription>
+              {tool.id === 3 && !tool.comingSoon && (
+                <div className="mt-2 text-xs text-gray-500">
+                  <span className="text-red-500 font-medium">Red = High Impact</span> · 
+                  <span className="text-orange-500 font-medium"> Orange = Medium</span> · 
+                  <span className="text-yellow-500 font-medium"> Yellow = Low</span>
+                </div>
+              )}
             </CardContent>
             {!tool.comingSoon && tool.link && (
               <CardFooter>
