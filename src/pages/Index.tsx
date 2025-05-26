@@ -5,6 +5,7 @@ import Sidebar from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import ForexTools from "@/components/ForexTools";
+import PropFirmComparison from "@/components/PropFirmComparison";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -41,6 +42,9 @@ const Index = () => {
         
         {/* Forex Tools Section */}
         <ForexTools />
+        
+        {/* Prop Firm Comparison Section */}
+        <PropFirmComparison />
         
         {/* About Section */}
         <section id="about" className="py-16 bg-gray-50 rounded-lg mt-16 px-4 md:px-8">
