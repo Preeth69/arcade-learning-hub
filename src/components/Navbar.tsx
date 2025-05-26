@@ -3,24 +3,47 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const navItems = [
-  { name: "Home", href: "#" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" }
-];
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setMobileMenuOpen(false);
+  };
+
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('#')) {
+      // If we're on the home page, scroll to section
+      if (location.pathname === '/') {
+        scrollToSection(href.substring(1));
+      } else {
+        // If we're on another page, navigate to home page with hash
+        window.location.href = `/${href}`;
+      }
+    } else {
+      // Regular navigation
+      setMobileMenuOpen(false);
+    }
+  };
 
   return (
     <header className="bg-trader-blue text-white sticky top-0 z-50 shadow-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5 flex items-center">
+          <Link to="/" className="-m-1.5 p-1.5 flex items-center">
             <span className="text-xl font-bold">Library Trader</span>
             <span className="ml-2 text-xs bg-trader-accent text-white px-2 py-0.5 rounded">by Option Arcade</span>
-          </a>
+          </Link>
         </div>
         
         <div className="flex lg:hidden">
@@ -35,15 +58,24 @@ const Navbar = () => {
         </div>
         
         <div className="hidden lg:flex lg:gap-x-8">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-white hover:text-trader-lightBlue"
-            >
-              {item.name}
-            </a>
-          ))}
+          <Link
+            to="/"
+            className="text-sm font-semibold leading-6 text-white hover:text-trader-lightBlue"
+          >
+            Home
+          </Link>
+          <button
+            onClick={() => handleNavClick('#about')}
+            className="text-sm font-semibold leading-6 text-white hover:text-trader-lightBlue cursor-pointer"
+          >
+            About
+          </button>
+          <Link
+            to="/contact"
+            className="text-sm font-semibold leading-6 text-white hover:text-trader-lightBlue"
+          >
+            Contact
+          </Link>
         </div>
       </nav>
       
@@ -66,16 +98,26 @@ const Navbar = () => {
         <div className="mt-6 flow-root">
           <div className="-my-6 divide-y divide-gray-700">
             <div className="space-y-2 py-6 px-8">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-xl font-semibold leading-8 text-white hover:text-trader-lightBlue"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
+              <Link
+                to="/"
+                className="block text-xl font-semibold leading-8 text-white hover:text-trader-lightBlue"
+                onClick={handleLinkClick}
+              >
+                Home
+              </Link>
+              <button
+                onClick={() => handleNavClick('#about')}
+                className="block text-xl font-semibold leading-8 text-white hover:text-trader-lightBlue text-left w-full"
+              >
+                About
+              </button>
+              <Link
+                to="/contact"
+                className="block text-xl font-semibold leading-8 text-white hover:text-trader-lightBlue"
+                onClick={handleLinkClick}
+              >
+                Contact
+              </Link>
             </div>
           </div>
         </div>
